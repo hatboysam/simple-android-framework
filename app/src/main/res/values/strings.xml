@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SAF</string>
+
+    <string name="hello_world">Hello, World!</string>
+    <string name="hint_message">Message…</string>
+    <string name="next">Next</string>
+    <string name="go_to_map">Go to map</string>
+</resources>

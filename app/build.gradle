@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.habosa.saf.demo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // Allow signing the release app with the debug configuration so we can test
+            // running with proguard
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    // Google Play services (only used in MapScreen demo)
+    compile 'com.google.android.gms:play-services-maps:10.2.4'
+
+    // Compile main SAF library
+    compile project(':library')
+
+    // Annotation processing for Bundler
+    compile 'pub.devrel.easybundler:easybundler-api:0.1.1'
+    annotationProcessor 'pub.devrel.easybundler:easybundler-compiler:0.1.1'
+
+    // Annotation processing for ButterKnife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+}
